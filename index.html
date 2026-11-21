@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ĐIỆN NƯỚC THỨC NGUYỄN - Sửa Chữa Tại Nhà 24/7</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; color: #333; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Topbar & Header */
+        .topbar { background: #0B4F8A; color: #fff; font-size: 0.9em; padding: 8px 5%; display: flex; justify-content: space-between; flex-wrap: wrap; }
+        header { background: #fff; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+        .logo-box { display: flex; align-items: center; gap: 10px; }
+        .logo-box img { height: 50px; border-radius: 6px; }
+        .logo-box h2 { color: #0B4F8A; font-size: 1.2em; }
+        .logo-box p { color: #D32F2F; font-size: 0.75em; font-weight: bold; }
+        .nav-links { display: flex; gap: 20px; font-weight: bold; color: #0B4F8A; }
+        .nav-links a { padding: 6px 10px; border-radius: 5px; }
+        .nav-links a:hover, .nav-links a.active { background: #E3F2FD; color: #D32F2F; }
+        .btn-call { background: #0B4F8A; color: #fff; padding: 10px 18px; border-radius: 6px; font-weight: bold; }
+
+        /* Banner Trang Chủ - Đã kéo dài ảnh người thợ */
+        .hero {
+            background: linear-gradient(90deg, rgba(255,255,255,0.92), rgba(227,242,253,0.85)), url('https://unsplash.com') center/cover;
+            padding: 40px 0 0 5%;
+            display: grid;
+            grid-template-columns: 0.85fr 1.35fr;
+            gap: 20px;
+            align-items: center;
+        }
+        .badge-do { display: inline-block; background: #C62828; color: #fff; font-weight: bold; font-size: 1.3em; padding: 4px 18px; border-radius: 20px; margin: 8px 0; }
+        .hero h1 { color: #0B4F8A; font-size: 2.6em; font-weight: 900; line-height: 1.1; margin-bottom: 10px; }
+        .hero ul { list-style: none; margin: 15px 0 25px; font-weight: 600; }
+        .hero li { margin-bottom: 8px; }
+        .hero-right { position: relative; display: flex; justify-content: flex-end; }
+        .anh-chinh {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 60px 0 0 0;
+            border-left: 6px solid #0B4F8A;
+        }
+        .anh-phu {
+            position: absolute;
+            bottom: 30px;
+            left: -65px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .bar-hotline { background: #0D599E; color: #fff; padding: 14px 5%; text-align: center; font-size: 1.2em; font-weight: bold; }
+
+        /* Nội dung & Card */
+        section { padding: 45px 5%; }
+        .bg-xam { background: #F4F7FA; }
+        .title { text-align: center; margin-bottom: 30px; color: #0B4F8A; font-size: 1.6em; text-transform: uppercase; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .card { background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; padding: 22px; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
+        .card h3 { color: #0B4F8A; margin-bottom: 8px; }
+
+        /* Footer & Nút nổi */
+        footer { background: #F8FAFC; border-top: 2px solid #E2E8F0; padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; font-size: 0.95em; }
+        footer h3 { color: #0B4F8A; margin-bottom: 12px; }
+        footer ul { list-style: none; }
+        footer li, footer p { margin-bottom: 6px; }
+        .copyright { background: #0B4F8A; color: #fff; text-align: center; padding: 14px; font-size: 0.9em; }
+        .float-box { position: fixed; bottom: 20px; left: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+        .float-btn { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.25); }
+
+        @media (max-width: 800px) { .hero { grid-template-columns: 1fr; } .anh-phu, .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        <span>📞 Hotline: <strong>0913 612 212</strong> | ✉️ diennuocthucnguyen@gmail.com</span>
+        <span>Hỗ trợ sửa chữa tận nơi 24/7 tại TP.HCM</span>
+    </div>
+
+    <header>
+        <a href="index.html" class="logo-box">
+            <img src="thucnguyen.jpg" alt="Logo Thức Nguyễn">
+            <div>
+                <h2>ĐIỆN NƯỚC THỨC NGUYỄN</h2>
+                <p>SỬA ĐIỆN NƯỚC TẠI NHÀ 24/7</p>
+            </div>
+        </a>
+        <!-- Menu chuyển sang các file HTML khác -->
+        <nav class="nav-links">
+            <a href="index.html" class="active">TRANG CHỦ</a>
+            <a href="gioithieu.html">GIỚI THIỆU</a>
+            <a href="dichvu.html">DỊCH VỤ</a>
+            <a href="lienhe.html">LIÊN HỆ</a>
+        </nav>
+        <a href="tel:0913612212" class="btn-call">📞 0913 612 212</a>
+    </header>
+
+    <div class="hero">
+        <div style="padding-bottom: 25px;">
+            <strong style="color: #0B4F8A;">⚡ SỬA CHỮA ĐIỆN NƯỚC TẠI NHÀ</strong><br>
+            <div class="badge-do">DỊCH VỤ</div>
+            <h1>THỨC NGUYỄN</h1>
+            <p style="color: #0B4F8A; font-weight: bold;">Thi công - Lắp đặt - Sửa chữa - Bảo trì tận nơi</p>
+            <ul>
+                <li>☑️ Sửa chập điện, mất điện, nhảy CB, lắp đồng hồ điện</li>
+                <li>☑️ Sửa ống nước vỡ, dò tìm rò rỉ nước âm tường, thông nghẹt</li>
+                <li>☑️ Sửa máy bơm nước gia đình, máy bơm tăng áp 24/7</li>
+            </ul>
+        </div>
+        <div class="hero-right">
+            <img class="anh-chinh" src="thodien.jfif" alt="Thợ điện nước">
+            <img class="anh-phu" src="thietbi.jfif" alt="Thiết bị">
+        </div>
+    </div>
+
+    <div class="bar-hotline">
+        <a href="tel:0913612212">📞 Hotline: 0913.612.212</a> &nbsp;|&nbsp;
+        <a href="https://zalo.me" target="_blank">🌐 Zalo: 0913.612.212</a>
+    </div>
+
+    <section class="bg-xam">
+        <h2 class="title">DỊCH VỤ NỔI BẬT TẠI NHÀ</h2>
+        <div class="grid-3">
+            <div class="card"><h3>⚡ SỬA ĐIỆN TẠI NHÀ</h3><p>Xử lý chập cháy điện, mất điện cục bộ, nhảy aptomat (CB), lắp đặt công tơ điện 1 pha &amp; 3 pha.</p></div>
+            <div class="card"><h3>💧 SỬA ỐNG NƯỚC</h3><p>Dò tìm rò rỉ nước âm tường, sửa ống nước bị vỡ, thay vòi sen, van khóa và thông nghẹt đường ống.</p></div>
+            <div class="card"><h3>⚙️ SỬA MÁY BƠM NƯỚC</h3><p>Sửa máy bơm không lên nước, kêu to, cháy tụ, lắp đặt máy bơm tăng áp và đẩy cao tận nhà.</p></div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <h3>ĐIỆN NƯỚC THỨC NGUYỄN</h3>
+            <p>Chuyên Sửa điện – Sửa nước – Sửa máy bơm nước tại nhà chuyên nghiệp tại TP.HCM.</p>
+            <p>📞 Hotline: <strong>0913 612 212</strong></p>
+        </div>
+        <div>
+            <h3>KHU VỰC PHỤC VỤ</h3>
+            <ul>
+                <li>📍 Gò Vấp, Tân Bình, Phú Nhuận, Bình Thạnh</li>
+                <li>📍 Quận 1, Quận 3, Quận 5, Quận 10, Quận 11</li>
+                <li>📍 Quận 12, Tân Phú, Bình Tân, TP. Thủ Đức</li>
+            </ul>
+        </div>
+        <div>
+            <h3>DỊCH VỤ NỔI BẬT</h3>
+            <ul>
+                <li>&rsaquo; Sửa chập điện, mất điện tại nhà</li>
+                <li>&rsaquo; Sửa ống nước bị vỡ, dò tìm rò rỉ</li>
+                <li>&rsaquo; Sửa máy bơm nước tại nhà 24/7</li>
+            </ul>
+        </div>
+    </footer>
+    <div class="copyright">Copyright &copy; 2026 ĐIỆN NƯỚC THỨC NGUYỄN. Hotline: 0913612212</div>
+
+    <div class="float-box">
+        <a href="https://zalo.me" target="_blank" class="float-btn" style="background:#0068FF; font-size:0.85em;">Zalo</a>
+        <a href="tel:0913612212" class="float-btn" style="background:#E53935; font-size:1.2em;">📞</a>
+    </div>
+
+</body>
+</html>

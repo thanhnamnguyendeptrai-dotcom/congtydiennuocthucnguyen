@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dịch Vụ - ĐIỆN NƯỚC THỨC NGUYỄN</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; color: #333; line-height: 1.6; background-color: #FFFFFF; }
+        a { text-decoration: none; color: inherit; }
+
+        /* Topbar & Header đồng bộ */
+        .topbar { background: #0B4F8A; color: #fff; font-size: 0.9em; padding: 8px 5%; display: flex; justify-content: space-between; flex-wrap: wrap; }
+        header { background: #fff; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+        .logo-box { display: flex; align-items: center; gap: 10px; }
+        .logo-box img { height: 50px; border-radius: 6px; }
+        .logo-box h2 { color: #0B4F8A; font-size: 1.2em; }
+        .logo-box p { color: #D32F2F; font-size: 0.75em; font-weight: bold; }
+        .nav-links { display: flex; gap: 20px; font-weight: bold; color: #0B4F8A; }
+        .nav-links a { padding: 6px 10px; border-radius: 5px; }
+        .nav-links a:hover, .nav-links a.active { background: #E3F2FD; color: #D32F2F; }
+        .btn-call { background: #0B4F8A; color: #fff; padding: 10px 18px; border-radius: 6px; font-weight: bold; }
+
+        /* Banner đầu trang */
+        .page-banner {
+            background: linear-gradient(rgba(11, 79, 138, 0.88), rgba(11, 79, 138, 0.88)), 
+                        url('https://unsplash.com') center/cover;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 50px 5%;
+        }
+        .page-banner h1 { font-size: 2.2em; text-transform: uppercase; margin-bottom: 10px; color: #FFEB3B; }
+        .page-banner p { font-size: 1.05em; max-width: 720px; margin: 0 auto; }
+
+        /* Khu vực danh mục dịch vụ */
+        section { padding: 50px 5%; }
+        .bg-xam { background-color: #F4F7FA; }
+        .section-title { text-align: center; margin-bottom: 35px; }
+        .section-title h2 { color: #0B4F8A; font-size: 1.75em; text-transform: uppercase; margin-bottom: 8px; }
+        .section-title .line { width: 70px; height: 4px; background: #FBC02D; margin: 0 auto; }
+
+        .grid-3 {
+            max-width: 1150px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .service-body {
+            padding: 22px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-body h3 { color: #0B4F8A; font-size: 1.25em; margin-bottom: 12px; }
+        .service-body ul { list-style: none; margin-bottom: 20px; flex: 1; }
+        .service-body li { margin-bottom: 8px; font-size: 0.95em; color: #444; }
+        .service-body li::before { content: "✔️ "; }
+        .btn-dat-tho {
+            display: block;
+            text-align: center;
+            background: #0B4F8A;
+            color: #FFFFFF;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn-dat-tho:hover { background: #D32F2F; }
+
+        /* Bảng giá tham khảo */
+        .price-container { max-width: 1000px; margin: 0 auto; overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th {
+            background-color: #0B4F8A;
+            color: #FFFFFF;
+            text-align: left;
+            padding: 14px 18px;
+            font-size: 1em;
+        }
+        td {
+            padding: 13px 18px;
+            border-bottom: 1px solid #E2E8F0;
+            font-size: 0.95em;
+        }
+        tr:nth-child(even) { background-color: #F8FAFC; }
+        .gia-tien { color: #D32F2F; font-weight: bold; }
+        .ghi-chu-gia {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Footer & Nút nổi */
+        footer { background: #F8FAFC; border-top: 2px solid #E2E8F0; padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; font-size: 0.95em; }
+        footer h3 { color: #0B4F8A; margin-bottom: 12px; }
+        footer ul { list-style: none; }
+        footer li, footer p { margin-bottom: 6px; }
+        .copyright { background: #0B4F8A; color: #fff; text-align: center; padding: 14px; font-size: 0.9em; }
+        .float-box { position: fixed; bottom: 20px; left: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 999; }
+        .float-btn { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.25); }
+
+        @media (max-width: 800px) { .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        <span>📞 Hotline: <strong>0913 612 212</strong> | ✉️ diennuocthucnguyen@gmail.com</span>
+        <span>Hỗ trợ sửa chữa tận nơi 24/7 tại TP.HCM</span>
+    </div>
+
+    <header>
+        <a href="index.html" class="logo-box">
+            <img src="thucnguyen.jpg" alt="Logo Thức Nguyễn">
+            <div>
+                <h2>ĐIỆN NƯỚC THỨC NGUYỄN</h2>
+                <p>SỬA ĐIỆN NƯỚC TẠI NHÀ 24/7</p>
+            </div>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">TRANG CHỦ</a>
+            <a href="gioithieu.html">GIỚI THIỆU</a>
+            <a href="dichvu.html" class="active">DỊCH VỤ</a>
+            <a href="lienhe.html">LIÊN HỆ</a>
+        </nav>
+        <a href="tel:0913612212" class="btn-call">📞 0913 612 212</a>
+    </header>
+
+    <!-- Banner đầu trang -->
+    <div class="page-banner">
+        <h1>DỊCH VỤ SỬA CHỮA ĐIỆN NƯỚC TẠI NHÀ</h1>
+        <p>Khắc phục nhanh chóng, an toàn và triệt để mọi sự cố điện dân dụng, đường ống nước và máy bơm tại TP.HCM. Kiểm tra miễn phí – Báo giá rõ ràng trước khi làm.</p>
+    </div>
+
+    <!-- 3 Nhóm dịch vụ chính -->
+    <section>
+        <div class="section-title">
+            <h2>CÁC HẠNG MỤC SỬA CHỮA CHUYÊN SÂU</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="grid-3">
+            <!-- Cột 1: Điện -->
+            <div class="service-card">
+                <img src="thucnguyen.jpg" alt="Sửa điện tại nhà">
+                <div class="service-body">
+                    <h3>⚡ 1. Sửa Chữa Điện Dân Dụng</h3>
+                    <ul>
+                        <li>Xử lý sự cố chập cháy điện âm tường, mất điện cục bộ hoặc toàn nhà.</li>
+                        <li>Sửa aptomat (CB) nhảy liên tục, thay CB chống giật an toàn.</li>
+                        <li>Lắp đặt, thay mới công tơ điện (đồng hồ điện) 1 pha, 3 pha.</li>
+                        <li>Lắp đèn LED, đèn trang trí, quạt trần, ổ cắm và đi lại dây điện gọn gàng.</li>
+                    </ul>
+                    <a href="tel:0913612212" class="btn-dat-tho">📞 Gọi Thợ Điện: 0913.612.212</a>
+                </div>
+            </div>
+
+            <!-- Cột 2: Nước -->
+            <div class="service-card">
+                <img src="thucnguyen.jpg" alt="Sửa ống nước tại nhà">
+                <div class="service-body">
+                    <h3>💧 2. Sửa Chữa Đường Ống Nước</h3>
+                    <ul>
+                        <li>Dò tìm vị trí rò rỉ nước ngầm âm tường, âm nền không đục phá bừa bãi.</li>
+                        <li>Sửa ống nước PVC, hàn ống nhiệt PPR bị nứt vỡ, xì nước.</li>
+                        <li>Thay thế vòi sen, vòi rửa chén, van khóa nước, phao cơ &amp; phao điện bồn nước.</li>
+                        <li>Thông tắc bồn cầu, lavabo, bồn rửa chén, ống thoát nước mưa.</li>
+                    </ul>
+                    <a href="tel:0913612212" class="btn-dat-tho">📞 Gọi Thợ Nước: 0913.612.212</a>
+                </div>
+            </div>
+
+            <!-- Cột 3: Máy bơm -->
+            <div class="service-card">
+                <img src="thucnguyen.jpg" alt="Sửa máy bơm nước">
+                <div class="service-body">
+                    <h3>⚙️ 3. Sửa Chữa &amp; Lắp Máy Bơm</h3>
+                    <ul>
+                        <li>Sửa máy bơm chạy nhưng không lên nước, lên nước yếu.</li>
+                        <li>Khắc phục máy bơm kêu to, rung lắc, nóng máy hoặc nhảy CB khi bật.</li>
+                        <li>Thay phớt, bạc đạn, tụ điện, rơ-le tự ngắt cho máy bơm tăng áp.</li>
+                        <li>Tư vấn lắp đặt máy bơm đẩy cao, máy bơm tăng áp điện tử êm ái.</li>
+                    </ul>
+                    <a href="tel:0913612212" class="btn-dat-tho">📞 Gọi Thợ Máy Bơm: 0913.612.212</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bảng giá tham khảo -->
+    <section class="bg-xam">
+        <div class="section-title">
+            <h2>BẢNG GIÁ NHÂN CÔNG THAM KHẢO</h2>
