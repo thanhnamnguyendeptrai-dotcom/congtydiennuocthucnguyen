@@ -146,45 +146,5 @@
     </div>
 
 </body>
-
-
-    <script>
-        document.querySelector("form").addEventListener("submit", function(e) {
-            e.preventDefault();
-
-            if (!confirm("Bạn xác nhận gửi thông tin đặt thợ Điện Nước Thức Nguyễn?")) {
-                return;
-            }
-
-            var form = this;
-            var nutGui = form.querySelector(".btn-submit");
-            nutGui.innerText = "⏳ Đang gửi yêu cầu...";
-            nutGui.disabled = true;
-
-            fetch("https://formsubmit.co", {
-                method: "POST",
-                headers: { 
-                    'Accept': 'application/json' 
-                },
-                body: new FormData(form)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Lỗi kết nối");
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById("thongBaoXacNhan").style.display = "block";
-                nutGui.innerText = "✔️ ĐÃ GỬI XÁC NHẬN THÀNH CÔNG";
-                form.reset();
-            })
-            .catch(error => {
-                alert("Không gửi được! Hãy mở web bằng Live Server hoặc link GitHub Pages rồi thử lại nhé.");
-                nutGui.innerText = "✔️ XÁC NHẬN ĐẶT LỊCH THỢ NGAY";
-                nutGui.disabled = false;
-            });
-        });
-    </script>
 </body>
 </html>
