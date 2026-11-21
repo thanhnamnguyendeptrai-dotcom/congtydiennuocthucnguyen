@@ -75,8 +75,7 @@
         <div class="form-box">
             <h2>ĐẶT LỊCH SỬA CHỮA TẠI NHÀ</h2>
             <form id="formGmail" action="https://web3forms.com" method="POST">
-                <!-- CHỈ CẦN DÁN MÃ ACCESS KEY BẠN LẤY Ở WEB3FORMS VÀO DÒNG DƯỚI ĐÂY -->
-                <input type="hidden" name="access_key" value="DAN_MA_ACCESS_KEY_CUA_BAN_VAO_DAY">
+                <input type="hidden" name="access_key" value="100947e5-267f-4427-a57f-7af1561cdda0">
                 <input type="hidden" name="subject" value="ĐƠN ĐẶT THỢ MỚI - ĐIỆN NƯỚC THỨC NGUYỄN">
 
                 <div class="form-group">
@@ -172,7 +171,7 @@
                     nutGui.innerText = "✔️ ĐÃ XÁC NHẬN ĐẶT LỊCH";
                     form.reset();
                 } else {
-                    alert("Bạn chưa dán đúng mã Access Key từ Web3Forms vào code!");
+                    alert("Có lỗi xảy ra, vui lòng kiểm tra lại kết nối!");
                     nutGui.innerText = "✔️ XÁC NHẬN ĐẶT LỊCH THỢ NGAY";
                     nutGui.disabled = false;
                 }
