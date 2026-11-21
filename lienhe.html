@@ -74,7 +74,7 @@
 
         <div class="form-box">
             <h2>ĐẶT LỊCH SỬA CHỮA TẠI NHÀ</h2>
-            <form action="https://formsubmit.co" method="POST">
+           <form id="formZalo" onsubmit="guiQuaZalo(event)">
                 <input type="hidden" name="_subject" value="ĐƠN ĐẶT THỢ MỚI - ĐIỆN NƯỚC THỨC NGUYỄN">
                 <input type="hidden" name="_captcha" value="false">
 
@@ -146,5 +146,34 @@
     </div>
 
 </body>
+        <script>
+        function guiQuaZalo(e) {
+            e.preventDefault();
+
+            var ten = document.querySelector('input[name="Ho_Ten"]').value;
+            var sdt = document.querySelector('input[name="So_Dien_Thoai"]').value;
+            var diachi = document.querySelector('input[name="Dia_Chi"]').value;
+            var dichvu = document.querySelector('select[name="Dich_Vu"]').value;
+            var mota = document.querySelector('textarea[name="Mo_Ta_Su_Co"]').value;
+
+            // Hiện thông báo xác nhận ngay trên trang web
+            document.getElementById("thongBaoXacNhan").style.display = "block";
+
+            // Tạo nội dung đơn đặt thợ tự động
+            var noiDung = "CHÀO ĐIỆN NƯỚC THỨC NGUYỄN, TÔI MUỐN ĐẶT THỢ:\n"
+                        + "- Khách hàng: " + ten + "\n"
+                        + "- SĐT: " + sdt + "\n"
+                        + "- Địa chỉ: " + diachi + "\n"
+                        + "- Dịch vụ: " + dichvu + "\n"
+                        + "- Sự cố: " + mota;
+
+            // Mở thẳng Zalo số 0913612212 kèm nội dung đơn hàng
+            var linkZalo = "https://zalo.me" + encodeURIComponent(noiDung);
+            window.open(linkZalo, "_blank");
+        }
+    </script>
+</body>
+</html>
+
 </body>
 </html>
