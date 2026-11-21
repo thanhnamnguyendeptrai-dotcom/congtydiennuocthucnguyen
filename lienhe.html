@@ -74,7 +74,11 @@
 
         <div class="form-box">
             <h2>ĐẶT LỊCH SỬA CHỮA TẠI NHÀ</h2>
-            <form onsubmit="guiQuaZalo(event)">
+            <form id="formGmail" action="https://web3forms.com" method="POST">
+                <!-- CHỈ CẦN DÁN MÃ ACCESS KEY BẠN LẤY Ở WEB3FORMS VÀO DÒNG DƯỚI ĐÂY -->
+                <input type="hidden" name="access_key" value="DAN_MA_ACCESS_KEY_CUA_BAN_VAO_DAY">
+                <input type="hidden" name="subject" value="ĐƠN ĐẶT THỢ MỚI - ĐIỆN NƯỚC THỨC NGUYỄN">
+
                 <div class="form-group">
                     <label>Họ và tên khách hàng *</label>
                     <input type="text" name="Ho_Ten" placeholder="Ví dụ: Anh Minh / Chị Lan" required>
@@ -105,8 +109,8 @@
                 <button type="submit" class="btn-submit">✔️ XÁC NHẬN ĐẶT LỊCH THỢ NGAY</button>
 
                 <div id="thongBaoXacNhan" style="display:none; margin-top:15px; padding:15px; background:#E8F5E9; color:#2E7D32; border:1px solid #A5D6A7; border-radius:8px; font-weight:bold; text-align:center;">
-                    ✅ ĐÃ XÁC NHẬN ĐẶT LỊCH THÀNH CÔNG!<br>
-                    Hệ thống đang mở Zalo 0913.612.212 để gửi thông tin của bạn cho thợ.
+                    ✅ ĐÃ GỬI ĐƠN ĐẶT LỊCH THÀNH CÔNG!<br>
+                    Kỹ thuật viên Điện Nước Thức Nguyễn đã nhận được thông tin và sẽ gọi lại ngay.
                 </div>
             </form>
         </div>
@@ -143,26 +147,42 @@
     </div>
 
     <script>
-        function guiQuaZalo(e) {
+        document.getElementById("formGmail").addEventListener("submit", function(e) {
             e.preventDefault();
-            var ten = document.querySelector('input[name="Ho_Ten"]').value;
-            var sdt = document.querySelector('input[name="So_Dien_Thoai"]').value;
-            var diachi = document.querySelector('input[name="Dia_Chi"]').value;
-            var dichvu = document.querySelector('select[name="Dich_Vu"]').value;
-            var mota = document.querySelector('textarea[name="Mo_Ta_Su_Co"]').value;
 
-            document.getElementById("thongBaoXacNhan").style.display = "block";
+            var form = this;
+            var nutGui = form.querySelector(".btn-submit");
+            nutGui.innerText = "⏳ Đang gửi thông tin...";
+            nutGui.disabled = true;
 
-            var noiDung = "CHÀO ĐIỆN NƯỚC THỨC NGUYỄN, TÔI MUỐN ĐẶT THỢ:\n"
-                        + "- Khách hàng: " + ten + "\n"
-                        + "- SĐT: " + sdt + "\n"
-                        + "- Địa chỉ: " + diachi + "\n"
-                        + "- Dịch vụ: " + dichvu + "\n"
-                        + "- Sự cố: " + mota;
+            var formData = new FormData(form);
+            var json = JSON.stringify(Object.fromEntries(formData));
 
-            var linkZalo = "https://zalo.me/0366232991?text=" + encodeURIComponent(noiDung);
-            window.open(linkZalo, "_blank");
-        }
+            fetch("https://web3forms.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: json
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    document.getElementById("thongBaoXacNhan").style.display = "block";
+                    nutGui.innerText = "✔️ ĐÃ XÁC NHẬN ĐẶT LỊCH";
+                    form.reset();
+                } else {
+                    alert("Bạn chưa dán đúng mã Access Key từ Web3Forms vào code!");
+                    nutGui.innerText = "✔️ XÁC NHẬN ĐẶT LỊCH THỢ NGAY";
+                    nutGui.disabled = false;
+                }
+            })
+            .catch(error => {
+                alert("Lỗi kết nối mạng, vui lòng thử lại!");
+                nutGui.innerText = "✔️ XÁC NHẬN ĐẶT LỊCH THỢ NGAY";
+                nutGui.disabled = false;
+            });
+        });
     </script>
 </body>
 </html>
