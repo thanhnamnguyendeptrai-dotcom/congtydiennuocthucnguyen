@@ -73,45 +73,43 @@
         </div>
 
         <div class="form-box">
-            <h2>ĐẶT LỊCH SỬA CHỮA TẠI NHÀ</h2>
-            <form id="formGmail" action="https://web3forms.com" method="POST">
-                <input type="hidden" name="access_key" value="100947e5-267f-4427-a57f-7af1561cdda0">
-                <input type="hidden" name="subject" value="ĐƠN ĐẶT THỢ MỚI - ĐIỆN NƯỚC THỨC NGUYỄN">
+            <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="100947e5-267f-4427-a57f-7af1561cdda0">
+    <input type="hidden" name="subject" value="ĐƠN ĐẶT THỢ MỚI - ĐIỆN NƯỚC THỨC NGUYỄN">
 
-                <div class="form-group">
-                    <label>Họ và tên khách hàng *</label>
-                    <input type="text" name="Ho_Ten" placeholder="Ví dụ: Anh Minh / Chị Lan" required>
-                </div>
-                <div class="form-group">
-                    <label>Số điện thoại liên hệ *</label>
-                    <input type="tel" name="So_Dien_Thoai" placeholder="Nhập số điện thoại để thợ gọi lại..." required>
-                </div>
-                <div class="form-group">
-                    <label>Địa chỉ cần sửa chữa *</label>
-                    <input type="text" name="Dia_Chi" placeholder="Số nhà, tên đường, Phường, Quận..." required>
-                </div>
-                <div class="form-group">
-                    <label>Hạng mục cần hỗ trợ</label>
-                    <select name="Dich_Vu">
-                        <option value="Sửa chập điện / Mất điện / Nhảy CB">⚡ Sửa chập điện / Mất điện / Nhảy CB</option>
-                        <option value="Lắp đặt đồng hồ điện">🔌 Lắp đặt / Sửa công tơ điện</option>
-                        <option value="Sửa ống nước vỡ / Rò rỉ nước">💧 Sửa ống nước vỡ / Dò tìm rò rỉ</option>
-                        <option value="Thông tắc cống / Lavabo / Bồn cầu">🚽 Thông tắc đường ống thoát nước</option>
-                        <option value="Sửa máy bơm nước tại nhà">⚙️ Sửa chữa / Lắp đặt máy bơm nước</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Mô tả ngắn gọn sự cố</label>
-                    <textarea name="Mo_Ta_Su_Co" rows="3" placeholder="Ví dụ: Nhà bị nhảy CB liên tục, cần thợ qua kiểm tra gấp..."></textarea>
-                </div>
+    <div class="form-group">
+        <label>Họ và tên khách hàng *</label>
+        <input type="text" name="name" placeholder="Ví dụ: Anh Minh / Chị Lan" required>
+    </div>
 
-                <button type="submit" class="btn-submit">✔️ XÁC NHẬN ĐẶT LỊCH THỢ NGAY</button>
+    <div class="form-group">
+        <label>Số điện thoại liên hệ *</label>
+        <input type="tel" name="phone" placeholder="Nhập số điện thoại để thợ gọi lại..." required>
+    </div>
 
-                <div id="thongBaoXacNhan" style="display:none; margin-top:15px; padding:15px; background:#E8F5E9; color:#2E7D32; border:1px solid #A5D6A7; border-radius:8px; font-weight:bold; text-align:center;">
-                    ✅ ĐÃ GỬI ĐƠN ĐẶT LỊCH THÀNH CÔNG!<br>
-                    Kỹ thuật viên Điện Nước Thức Nguyễn đã nhận được thông tin và sẽ gọi lại ngay.
-                </div>
-            </form>
+    <div class="form-group">
+        <label>Địa chỉ cần sửa chữa *</label>
+        <input type="text" name="address" placeholder="Số nhà, tên đường, Phường, Quận..." required>
+    </div>
+
+    <div class="form-group">
+        <label>Hạng mục cần hỗ trợ</label>
+        <select name="service">
+            <option value="Sửa chập điện / Mất điện / Nhảy CB">⚡ Sửa chập điện / Mất điện / Nhảy CB</option>
+            <option value="Lắp đặt đồng hồ điện">🔌 Lắp đặt / Sửa công tơ điện</option>
+            <option value="Sửa ống nước vỡ / Rò rỉ nước">💧 Sửa ống nước vỡ / Dò tìm rò rỉ</option>
+            <option value="Thông tắc cống / Lavabo / Bồn cầu">🚽 Thông tắc đường ống thoát nước</option>
+            <option value="Sửa máy bơm nước tại nhà">⚙️ Sửa chữa / Lắp đặt máy bơm nước</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Mô tả ngắn gọn sự cố *</label>
+        <textarea name="message" rows="3" placeholder="Ví dụ: Nhà bị nhảy CB liên tục, cần thợ qua kiểm tra gấp..." required></textarea>
+    </div>
+
+    <button type="submit" class="btn-submit">✔️ XÁC NHẬN ĐẶT LỊCH THỢ NGAY</button>
+</form>
         </div>
     </div>
 
