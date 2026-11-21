@@ -140,48 +140,14 @@
     </footer>
     <div class="copyright">Copyright &copy; 2026 ĐIỆN NƯỚC THỨC NGUYỄN. Hotline: 0913612212</div>
 
-    <div class="float-box">
+       <div class="float-box">
         <a href="https://zalo.me" target="_blank" class="float-btn" style="background:#0068FF; font-size:0.85em;">Zalo</a>
         <a href="tel:0913612212" class="float-btn" style="background:#E53935; font-size:1.2em;">📞</a>
     </div>
 
-    <script>
-        document.getElementById("formGmail").addEventListener("submit", function(e) {
-            e.preventDefault();
+</body>
+</html>
 
-            var form = this;
-            var nutGui = form.querySelector(".btn-submit");
-            nutGui.innerText = "⏳ Đang gửi thông tin...";
-            nutGui.disabled = true;
-
-            var formData = new FormData(form);
-            var json = JSON.stringify(Object.fromEntries(formData));
-
-            fetch("https://web3forms.com", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: json
-            })
-            .then(async (response) => {
-                if (response.status == 200) {
-                    document.getElementById("thongBaoXacNhan").style.display = "block";
-                    nutGui.innerText = "✔️ ĐÃ XÁC NHẬN ĐẶT LỊCH";
-                    form.reset();
-                } else {
-                    alert("Có lỗi xảy ra, vui lòng kiểm tra lại kết nối!");
-                    nutGui.innerText = "✔️ XÁC NHẬN ĐẶT LỊCH THỢ NGAY";
-                    nutGui.disabled = false;
-                }
-            })
-            .catch(error => {
-                alert("Lỗi kết nối mạng, vui lòng thử lại!");
-                nutGui.innerText = "✔️ XÁC NHẬN ĐẶT LỊCH THỢ NGAY";
-                nutGui.disabled = false;
-            });
-        });
-    </script>
+   
 </body>
 </html>
